@@ -1,4 +1,4 @@
-# Implementation of shared secret computation for curve25519.
+# Implementation of shared secret computation for Curve25519.
 
 # Implementation name	:  intel64-simd4
 # Timings		:  Haswell - 123899, Skylake - 95437
