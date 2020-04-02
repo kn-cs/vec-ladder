@@ -1,7 +1,7 @@
-# Implementation of shared secret computation for curve448.
+# Implementation of shared secret computation for Curve448.
 
 # Implementation name	:  intel64-simd4
-# Timings		:  Haswell - 441332, Skylake - 361621
+# Timings		:  Skylake - 361621, Haswell - 441332
 
 This implementation corresponds to the paper "Efficient 4-way Vectorizations of the Montgomery Ladder" authored by
 
