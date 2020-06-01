@@ -593,37 +593,37 @@ vpaddq    1472(%rsp),%ymm3,%ymm3
 vpmuludq  a24,%ymm9,%ymm4
 vpaddq    1504(%rsp),%ymm4,%ymm4
 
-vpsrlq    $29,%ymm10,%ymm15
-vpaddq    %ymm15,%ymm11,%ymm11
-vpand     vecmask29,%ymm10,%ymm10
-
 vpsrlq    $29,%ymm0,%ymm15
 vpaddq    %ymm15,%ymm1,%ymm1
 vpand     vecmask29,%ymm0,%ymm0
 
-vpsrlq    $29,%ymm11,%ymm15
-vpaddq    %ymm15,%ymm12,%ymm12
-vpand     vecmask29,%ymm11,%ymm11
+vpsrlq    $29,%ymm10,%ymm15
+vpaddq    %ymm15,%ymm11,%ymm11
+vpand     vecmask29,%ymm10,%ymm10
 
 vpsrlq    $29,%ymm1,%ymm15
 vpaddq    %ymm15,%ymm2,%ymm2
 vpand     vecmask29,%ymm1,%ymm1
 
-vpsrlq    $29,%ymm12,%ymm15
-vpaddq    %ymm15,%ymm13,%ymm13
-vpand     vecmask29,%ymm12,%ymm12
+vpsrlq    $29,%ymm11,%ymm15
+vpaddq    %ymm15,%ymm12,%ymm12
+vpand     vecmask29,%ymm11,%ymm11
 
 vpsrlq    $29,%ymm2,%ymm15
 vpaddq    %ymm15,%ymm3,%ymm3
 vpand     vecmask29,%ymm2,%ymm2
 
-vpsrlq    $29,%ymm13,%ymm15
-vpaddq    %ymm15,%ymm0,%ymm0
-vpand     vecmask29,%ymm13,%ymm13
+vpsrlq    $29,%ymm12,%ymm15
+vpaddq    %ymm15,%ymm13,%ymm13
+vpand     vecmask29,%ymm12,%ymm12
 
 vpsrlq    $29,%ymm3,%ymm15
 vpaddq    %ymm15,%ymm4,%ymm4
 vpand     vecmask29,%ymm3,%ymm3
+
+vpsrlq    $29,%ymm13,%ymm15
+vpaddq    %ymm15,%ymm0,%ymm0
+vpand     vecmask29,%ymm13,%ymm13
 
 vpsrlq    $23,%ymm4,%ymm15
 vpmuludq  vec19,%ymm15,%ymm15
