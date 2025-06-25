@@ -1,6 +1,6 @@
 ## Efficient 4-way Vectorizations of the Montgomery Ladder
 
-This is the source code repository of the work [Efficient 4-way Vectorizations of the Montgomery Ladder](IEEE Trans. Computers 71(3): 712-723 (2022)), authored by [Kaushik Nath](kaushik.nath@yahoo.in) & [Palash Sarkar](palash@isical.ac.in) of [Indian Statistical Institute, Kolkata, India](https://www.isical.ac.in).
+This is the source code repository of the work [Efficient 4-way Vectorizations of the Montgomery Ladder](https://eprint.iacr.org/2020/378.pdf)), authored by [Kaushik Nath](kaushik.nath@yahoo.in) & [Palash Sarkar](palash@isical.ac.in) of [Indian Statistical Institute, Kolkata, India](https://www.isical.ac.in).
 This work focuses on vectorizing the Montgomery ladder on Mongomery curves by handling 4 field operations at a time. All the implementations of Montgomery ladder are developed in assembly language targeting the modern Intel architectures which are enabled with the AVX2 instruction set.
 
 To report a bug or make a comment regarding the implementations please drop a mail to: [Kaushik Nath](kaushik.nath@yahoo.in).
