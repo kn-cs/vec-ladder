@@ -5,7 +5,7 @@
 | Kaushik Nath,  Indian Statistical Institute, Kolkata, India, and            |
 | Palash Sarkar, Indian Statistical Institute, Kolkata, India.	              |
 +-----------------------------------------------------------------------------+
-| Copyright (c) 2020, Kaushik Nath and Palash Sarkar.                         |
+| Copyright (c) 2020, Kaushik Nath.                                           |
 |                                                                             |
 | Permission to use this code is granted.                          	      |
 |                                                                             |
@@ -43,10 +43,32 @@
 #include "basic_types.h"
 #include "gf_p4482241_type.h"
 #include "gf_p4482241_arith.h"
-#include "measure.h"
 
-#define change_input(x,y,z)  {x[0] = y[0]^z[0];}
 #define FILE stdout
+
+#include "cpucycles.h"
+#define TIMINGS 12345
+static long long t[TIMINGS+1];
+
+static void print_median_cycles(void) {
+
+	long long median = 0;
+
+	for (long long i = 0;i < TIMINGS;++i)
+    		t[i] = t[i+1]-t[i];
+  	for (long long j = 0;j < TIMINGS;++j) {
+    		long long belowj = 0;
+    		long long abovej = 0;
+    		for (long long i = 0;i < TIMINGS;++i) if (t[i] < t[j]) ++belowj;
+    		for (long long i = 0;i < TIMINGS;++i) if (t[i] > t[j]) ++abovej;
+    		if (belowj*2 < TIMINGS && abovej*2 < TIMINGS) {
+      			median = t[j];
+      			break;
+    		}
+  	}
+  	printf("%lld\n\n",median);
+  	fflush(stdout);
+}
 
 int main() {
 
@@ -68,12 +90,22 @@ int main() {
 	for(i=0;i<CRYPTO_BYTES;++i) fprintf(FILE,"%4d",q[i]); fprintf(FILE,"\n\n");
 
 	fprintf(FILE,"Computing CPU-cycles. It will take some time. Please wait!\n\n");
-
-	MEASURE_TIME({curve448_scalarmult_base(q,n,p);change_input(p,q,p);});
-	fprintf(FILE,"CPU-cycles for key generation of Curve448: %6.0lf\n\n", ceil(((get_median())/(double)(N))));
-
-	MEASURE_TIME({curve448_scalarmult(q,n,p);change_input(p,q,p);});
-	fprintf(FILE,"CPU-cycles for shared secret computation of Curve448: %6.0lf\n\n", ceil(((get_median())/(double)(N))));
+	
+    	for (long long i = 0;i <= TIMINGS;++i) {
+      		t[i] = cpucycles();
+      		curve448_scalarmult_base(q,n,p);
+   	}	
+	
+	fprintf(FILE,"CPU-cycles for key generation of Curve448: ");
+	print_median_cycles();	
+	
+    	for (long long i = 0;i <= TIMINGS;++i) {
+      		t[i] = cpucycles();
+      		curve448_scalarmult(q,n,p);
+   	}	
+	
+	fprintf(FILE,"CPU-cycles for key generation of Curve448: ");
+	print_median_cycles();
 	
 	return 0;
 }
