@@ -5,7 +5,7 @@
 | Kaushik Nath,  Indian Statistical Institute, Kolkata, India, and            |
 | Palash Sarkar, Indian Statistical Institute, Kolkata, India.	              |
 +-----------------------------------------------------------------------------+
-| Copyright (c) 2020, Kaushik Nath and Palash Sarkar.                         |
+| Copyright (c) 2020, Kaushik Nath.                                           |
 |                                                                             |
 | Permission to use this code is granted.                          	      |
 |                                                                             |
@@ -53,7 +53,6 @@
 .globl vecmask32
 .globl a24
 .globl mask56
-.globl zero
 .globl p012456
 .globl p3
 
@@ -73,6 +72,5 @@ vecmask28	: .quad 0xFFFFFFF,0xFFFFFFF,0xFFFFFFF,0xFFFFFFF
 vecmask32	: .quad 0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF
 a24	 	: .quad 0,39082,0,0
 mask56		: .quad 0xFFFFFFFFFFFFFF
-zero	 	: .quad 0
 p012456		: .quad 0xFFFFFFFFFFFFFFFF
 p3		: .quad 0xFFFFFFFEFFFFFFFF
