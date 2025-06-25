@@ -5,7 +5,7 @@
 | Kaushik Nath,  Indian Statistical Institute, Kolkata, India, and            |
 | Palash Sarkar, Indian Statistical Institute, Kolkata, India.	              |
 +-----------------------------------------------------------------------------+
-| Copyright (c) 2020, Kaushik Nath and Palash Sarkar.                         |
+| Copyright (c) 2020, Kaushik Nath.                                           |
 |                                                                             |
 | Permission to use this code is granted.                          	      |
 |                                                                             |
@@ -37,66 +37,69 @@
 +-----------------------------------------------------------------------------+
 */
 
-.globl gfp4482241makeunique
+	.p2align 5
+	.globl gfp4482241makeunique
+
 gfp4482241makeunique:
 
-movq    %rsp, %r11
-subq    $56, %rsp
+	movq    %rsp,%r11
+	andq    $-32,%rsp
+	subq    $56,%rsp
 
-movq    %r11,  0(%rsp)
-movq    %r12,  8(%rsp)
-movq    %r13, 16(%rsp)
-movq    %r14, 24(%rsp)
-movq    %r15, 32(%rsp)
-movq    %rbp, 40(%rsp)
-movq    %rbx, 48(%rsp)
+	movq    %r11,0(%rsp)
+	movq    %r12,8(%rsp)
+	movq    %r13,16(%rsp)
+	movq    %r14,24(%rsp)
+	movq    %r15,32(%rsp)
+	movq    %rbp,40(%rsp)
+	movq    %rbx,48(%rsp)
 
-movq    0(%rdi),   %r8
-movq    8(%rdi),   %r9
-movq    16(%rdi), %r10
-movq    24(%rdi), %r11
-movq    32(%rdi), %r12
-movq    40(%rdi), %r13
-movq    48(%rdi), %r14
+	movq    0(%rdi),%r8
+	movq    8(%rdi),%r9
+	movq    16(%rdi),%r10
+	movq    24(%rdi),%r11
+	movq    32(%rdi),%r12
+	movq    40(%rdi),%r13
+	movq    48(%rdi),%r14
 
-movq    %r8,  %rax
-movq    %r9,  %rbx
-movq    %r10, %rcx
-movq    %r11, %rdx
-movq    %r12, %rbp
-movq    %r13, %rsi
-movq    %r14, %r15
+	movq    %r8,%rax
+	movq    %r9,%rbx
+	movq    %r10,%rcx
+	movq    %r11,%rdx
+	movq    %r12,%rbp
+	movq    %r13,%rsi
+	movq    %r14,%r15
 
-subq    p012456, %r8
-sbbq    p012456, %r9
-sbbq    p012456, %r10
-sbbq    p3     , %r11
-sbbq    p012456, %r12
-sbbq    p012456, %r13
-sbbq    p012456, %r14
+	subq    p012456(%rip),%r8
+	sbbq    p012456(%rip),%r9
+	sbbq    p012456(%rip),%r10
+	sbbq    p3(%rip),%r11
+	sbbq    p012456(%rip),%r12
+	sbbq    p012456(%rip),%r13
+	sbbq    p012456(%rip),%r14
 
-cmovc   %rax, %r8
-cmovc   %rbx, %r9
-cmovc   %rcx, %r10
-cmovc   %rdx, %r11
-cmovc   %rbp, %r12
-cmovc   %rsi, %r13
-cmovc   %r15, %r14
+	cmovc   %rax,%r8
+	cmovc   %rbx,%r9
+	cmovc   %rcx,%r10
+	cmovc   %rdx,%r11
+	cmovc   %rbp,%r12
+	cmovc   %rsi,%r13
+	cmovc   %r15,%r14
 
-movq   	%r8,   0(%rdi)
-movq   	%r9,   8(%rdi)
-movq   	%r10, 16(%rdi)
-movq   	%r11, 24(%rdi)
-movq   	%r12, 32(%rdi)
-movq   	%r13, 40(%rdi)
-movq   	%r14, 48(%rdi)
+	movq    %r8,0(%rdi)
+	movq    %r9,8(%rdi)
+	movq    %r10,16(%rdi)
+	movq    %r11,24(%rdi)
+	movq    %r12,32(%rdi)
+	movq    %r13,40(%rdi)
+	movq    %r14,48(%rdi)
 
-movq    8(%rsp),  %r12
-movq    16(%rsp), %r13
-movq    24(%rsp), %r14
-movq    32(%rsp), %r15
-movq    40(%rsp), %rbp
-movq    48(%rsp), %rbx
-movq    0(%rsp),  %rsp
+	movq    8(%rsp),%r12
+	movq    16(%rsp),%r13
+	movq    24(%rsp),%r14
+	movq    32(%rsp),%r15
+	movq    40(%rsp),%rbp
+	movq    48(%rsp),%rbx
+	movq    0(%rsp),%rsp
 
-ret
+	ret
