@@ -4,7 +4,7 @@
 #| Kaushik Nath,  Indian Statistical Institute, Kolkata, India, and            |
 #| Palash Sarkar, Indian Statistical Institute, Kolkata, India.	               |
 #+-----------------------------------------------------------------------------+
-#| Copyright (c) 2020, Kaushik Nath, Palash Sarkar.                            |
+#| Copyright (c) 2020, Kaushik Nath.		                                 |
 #|                                                                             |
 #| Permission to use this code is granted.                          	       |
 #|                                                                             |
@@ -64,14 +64,13 @@ OBJFLS = ../source/curve448_const.o 		\
 
 EXE    = curve448_test
 
-#CFLAGS = -march=haswell -mtune=haswell -mavx2 -m64 -O3 -funroll-loops -fomit-frame-pointer
-CFLAGS = -march=skylake -mtune=skylake -mavx2 -m64 -O3 -funroll-loops -fomit-frame-pointer
+CFLAGS = -march=native -mtune=native -mavx2 -m64 -O3 -funroll-loops -fomit-frame-pointer
 
 CC     = gcc
 LL     = gcc
 
 $(EXE): $(OBJFLS)
-	$(LL) -o $@ $(OBJFLS) -lm -no-pie
+	$(LL) -o $@ $(OBJFLS) -lcpucycles
 
 .c.o:
 	$(CC) $(INCDRS) $(CFLAGS) -o $@ -c $<
