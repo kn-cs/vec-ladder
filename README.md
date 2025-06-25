@@ -10,7 +10,7 @@ To report a bug or make a comment regarding the implementations please drop a ma
 ### Compilation and execution of programs 
     
 * Please compile the ```makefile``` in the **test** directory and execute the generated executable file. 
-* One can change the architecture accordingly in the makefile before compilation. Default provided is ```Skylake```.
+* Installation of the library [libcpucycles](https://cpucycles.cr.yp.to/) is required to record the timing.
 ---
 
 ### Overview of various implementations in the repository
