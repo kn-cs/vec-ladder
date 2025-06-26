@@ -104,7 +104,7 @@ int main() {
       		curve448_scalarmult(q,n,p);
    	}	
 	
-	fprintf(FILE,"CPU-cycles for key generation of Curve448: ");
+	fprintf(FILE,"CPU-cycles for shared secret computation of Curve448: ");
 	print_median_cycles();
 	
 	return 0;
